@@ -6,6 +6,7 @@ BIND="$(getent hosts $HOSTNAME | awk '{print $1}')"
 if [ -z "$MASTER" ]
 then
 	echo "Master not set!"
+	s6-svscanctl -t /etc/s6
 	exit 1
 else
 	next="-join=$MASTER"
