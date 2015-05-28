@@ -9,7 +9,7 @@ then
 	s6-svscanctl -t /etc/s6
 	exit 1
 else
-	next="-join=$MASTER"
+	export next="-join=$MASTER"
 fi
 
-exec consul agent -config-dir /etc/consul.d/bootstrap $next -dc $DATACENTER;
+exec s6-notifywhenup -d 2 ./runner.sh
