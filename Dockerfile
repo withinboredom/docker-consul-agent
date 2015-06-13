@@ -1,7 +1,7 @@
 # DOCKER-VERSION 1.0.0
 
 FROM withinboredom/ubuntu-base
-MAINTAINER Scott Mebberson <scott@scottmebberson.com>
+MAINTAINER Robert Landers <landers.robert@gmail.com>
 
 ENV CONSUL_VERSION 0.5.2
 ENV DATACENTER "local"
@@ -17,8 +17,6 @@ RUN curl -sSLO https://dl.bintray.com/mitchellh/consul/${CONSUL_VERSION}_linux_a
     useradd -r -g consul consul && \
     mkdir -p /data && \
     chown -R consul:consul /data
-
-VOLUME ["/data"]
 
 ADD root /
 
